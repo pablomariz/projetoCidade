@@ -15,8 +15,10 @@ class CreateCidadesTable extends Migration
     {
         Schema::create('cidades', function (Blueprint $table) {
             $table->id(); // criar chave primaria "id"
-            $table->timestamps(); //armazenar informações de data no registro (laravel)
+            $table->timestamps(); 
             $table->string('nome',100)->unique();
+            $table->decimal('valor');
+            $table->date('data');
         });
     }
 

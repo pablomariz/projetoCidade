@@ -9,9 +9,8 @@ class CidadeController extends Controller
 {
     public function cidades()
     {
-        $subtitulo  = 'Lista de cidades';
+        $subtitulo  = 'Lista de cursos';
 
-        // $cidades = ['Pirapora', 'Buritizeiro'];
 
         $cidades = Cidade::all();
 
@@ -26,21 +25,24 @@ class CidadeController extends Controller
         return view('admin.cidades.form');
     }
 
-    public function formSave(CidadeRequest $request) ##eu quero que voce injete a dependencia no método
+    public function formSave(CidadeRequest $request) 
     {
-        // //criar um objeto do modelo
-        // $cidade = new cidade();
-        // $cidade->nome = $request->nome;
-        // $cidade->save();//salvar no bd
-        //validate
+        
+            $cidade = new Cidade();
+            $cidade->nome = $request->nome;
+            $cidade->valor = $request->valor;
+            $cidade->data = $request->data;
 
-        Cidade::create($request->all());##criando obj do modelo
-        $request->session()->flash('sucesso',"Cidade $request->nome incluida!");
+        
+        $cidade->save();
         return redirect()->route('admin.cidades.listar');
+
+
+
     }
     public function deletar($id, Request $request){
         Cidade::destroy($id);
-        $request->session()->flash('sucesso',"cidade deletada");
+        $request->session()->flash('sucesso',"Curso deletado");
         return redirect()->route('admin.cidades.listar');
     }
 }

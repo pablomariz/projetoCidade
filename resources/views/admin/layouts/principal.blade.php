@@ -10,24 +10,21 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <title>Cidades</title>
+    <title>Cursos</title>
 </head>
 
 <body>
-    <nav>
-        <div class="container">
-            <div class="nav-wrapper">
-
-                <b href="/" class="brand-logo">🏠</b>
-                <ul class="right">
-                    <li><a href="#">Cidades</a></li>
-                </ul>
-
-            </div>
-
+  <nav class="red">
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
         </div>
-
-    </nav>
+      </form>
+    </div>
+  </nav>
 
     <div class="container">
         @yield('conteudo-principal')

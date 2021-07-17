@@ -2,12 +2,15 @@
 @section('conteudo-principal')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <section class=section>
-        <table class=highlight>
+        <table class=striped>
             <thead>
                 <tr>
-                    <th>Cidades</th>
-                    <th class="right-align">Opções</th>
+                    <th>Nome do Curso</th>
+                    <th>Valor</th>
+                    <th>Data de Lançamento</th>
+                    <th>Opções</th>
                 </tr>
 
             </thead>
@@ -15,10 +18,9 @@
                 @forelse ($cidades as $cidade)
                     <tr>
                         <td>{{ $cidade->nome }}</td>
+                        <td>{{ $cidade->valor }}</td>
+                        <td>{{ $cidade->data }}</td>
                         <td class="right-align">
-                            <span>
-                                <i class="material-icons blue-text">edit</i>
-                            </span>
                             <form action="{{ route('admin.cidades.deletar', $cidade->id) }}" method="POST">
                                 @CSRF
                                 @method('DELETE')
@@ -31,9 +33,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr>
-                        <td colspan="2">Sem dados na base de dados</td>
-                    </tr>
+
                 @endforelse
             </tbody>
         </table>

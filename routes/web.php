@@ -17,15 +17,15 @@ use App\Http\Controllers\CidadeController;
 //    return view('welcome');
 //});
 
-Route::redirect('/', '/admin/cidades');
+Route::redirect('/', '/admin/cursos');
 
 
 Route::prefix('admin')->name('admin.')->group(function(){
 
-    Route::get('cidades', [CidadeController::class, 'cidades'])->name('cidades.listar');
-    Route::get('cidades/adicionar', [CidadeController::class, 'formAdicionar'])->name('cidades.form');
-    Route::post('cidades/adicionar', [CidadeController::class, 'formSave'])->name('cidades.adicionar');
-    Route::delete('cidades/{id}', [CidadeController::class, 'deletar'])->name('cidades.deletar');
+    Route::get('cursos', [CidadeController::class, 'cidades'])->name('cidades.listar');
+    Route::get('cursos/adicionar', [CidadeController::class, 'formAdicionar'])->name('cidades.form');
+    Route::post('cursos/adicionar', [CidadeController::class, 'formSave'])->name('cidades.adicionar');
+    Route::delete('cursos/{id}', [CidadeController::class, 'deletar'])->name('cidades.deletar');
 
 
 });
